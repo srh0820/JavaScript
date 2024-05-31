@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 태그에 데이터저장</title>
+</head>
+<body>
+    <p data-content = "html 태그에 데이터를 저장한 것"
+       data-cls = "text-dark bg-white border"> 여기 글자 수정하기</p>
+    <script>
+        const ptag = document.querySelector("p");
+        ptag.innerHTML = ptag.dataset.content;
+        ptag.classList = ptag.dataset.cls;
+    </script>
+</body>
+</html>
