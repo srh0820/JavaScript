@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="display:inline-block">
+        버튼을 클릭해보세요.
+   </div>
+   <div class="btns">
+        <button data-bg="red" data-text="빨강색" data-color="">1</button>
+        <button data-bg="yellow" data-text="노랑색" data-color="">2</button>
+        <button data-bg="blue" data-text="파랑색" data-color="">3</button>
+        <button data-bg="black" data-text="검정색" data-color="red">4</button>
+   </div>
+
+  <script>
+        const targetbox = document.getElementById("box");   // 메서드를 직접 연결 , id 는 querySelector 보다 getElementById 으로 직접 찾을 수 있도록
+        const btns = document.querySelectorAll(".btns button");    // 집합 , forEach.
+
+        btns.forEach(function(ele, idx){
+            // console.log("태그", ele, "순차", idx)
+            ele.addEventListener('click', function(){
+                console.log(this); // this -> 태그 프로세서를 짧게 해줌. 클릭 된 버튼 요소
+                targetbox.innerHTML = this.dataset.text;
+                targetbox.style.backgroundColor = this.dataset.bg;
+                targetbox.style.color = this.dataset.color;
+            })
+        });
+  </script>
+</body>
+</html>
