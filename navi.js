@@ -14,7 +14,6 @@ const hd_yys ={
             {
                 Text : "미션",
                 href : "mission.html",
-               
             },
             {
                 Text : "소싱철학",
@@ -92,7 +91,15 @@ const hd_yys ={
 
 window.onload = function(){
     // document.body.innerHTML = hd_yys["gnb"][0].Text;
-    document.querySelector("#gnb li").innerHTML = `<a href="${hd_yys["gnb"][0].href}">${hd_yys["gnb"][0].Text}</a>`;
+    // document.querySelector("#gnb li").innerHTML = `<a href="${hd_yys["gnb"][0].href}">${hd_yys["gnb"][0].Text}</a>`;
+
+    let navitag = "";
+    for(x in hd_yys.gnb){
+        navitag += `<li class="${hd_yys.gnb[x].cls[0]}">
+        <a href='${hd_yys.gnb[x].href}' class="${hd_yys.gnb[1].cls[1]}">
+        ${hd_yys.gnb[x].Text}</a></li>`
+    }
+    document.querySelector("#gnb").innerHTML = navitag;
 }
 // window.getElementByID("gnb").onclick = function(){}
 // window.addEventListener("load", function(){})
