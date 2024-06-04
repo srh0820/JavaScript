@@ -45,14 +45,14 @@ const hd_yys ={
         href : "misson.html",
         cls : ["nav-mission me-5 gnb_li rel","d-block gnb_a","gnb_ul abs","gnb_ul_li"],
         gnb_ul_li : [
-            {
-                Text : "인기상품",
-                href : "mission.html"
-            },
-            {
-                Text : "대기중인상품",
-                href : "social.html"
-            }
+            // {
+            //     Text : "인기상품",
+            //     href : "mission.html"
+            // },
+            // {
+            //     Text : "대기중인상품",
+            //     href : "social.html"
+            // }
         ]
     },
     {
@@ -100,7 +100,7 @@ window.onload = function(){
             <a href='${hd_yys.gnb[x].href}' class='${hd_yys.gnb[x].cls[1]}'>
                 ${hd_yys.gnb[x].Text}
             </a>`;
-        navitag += `<ul>`;   
+        if(hd_yys.gnb[x].gnb_ul_li.length > 0) navitag += `<ul>`;   
         for(j in hd_yys.gnb[x].gnb_ul_li){
         navitag +=`<li>
             <a href='${hd_yys.gnb[x].gnb_ul_li[j].href}'>
@@ -111,7 +111,7 @@ window.onload = function(){
         navitag += `</ul>`;
         navitag += `</li>`;     
     }
-
+    if(hd_yys.gnb[x].gnb_ul_li.length > 0) navitag += `</ul>`;   
     document.querySelector("#gnb").innerHTML = navitag;
 }
 
