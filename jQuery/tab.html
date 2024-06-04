@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d-none{
+            display: none;
+        }
+        .on a{color:red}
+        #tab{
+            display: flex;
+        }
+    </style>
+
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            // ready 이벤트는 여러번 써도 된다.
+            $("#tab li").click(function(){
+                // $() -> 쿼리셀렉터
+
+                const targetdiv = $(this).find('a').attr('href');
+                // #notice #gallery #qna
+                // $(this) -> li 태그(객체)
+                // 클릭한 li 안에 있는 a 태그를 찾아서 href 값을 targetdiv 에 저장(string)
+
+                $(targetdiv).removeClass('d-none').siblings().addClass('d-none'); 
+                // $("#notice") $("#gallery") $("#qna")
+                // targetdiv 는 d-none 을 제거하고 그 외 형제들은 d-none 을 추가
+
+                $(this).addClass('on').siblings().removeClass('on'); 
+                // 색을 바꿔줌
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul id="tab">
+        <li class="notice on"><a href="#notice">공지사항</a></li>
+        <li class="gallery"><a href="#gallery">갤러리</a></li>
+        <li class="qna"><a href="#qna">QNA</a></li>
+    </ul>
+    <div class="content">
+        <div id="notice">
+            공지사항컨텐츠
+        </div>
+        <div id="gallery" class="d-none">
+            갤러리컨텐츠
+        </div>
+        <div id="qna" class="d-none">
+            문의컨텐츠
+        </div>
+    </div>    
+</body>
+</html>
