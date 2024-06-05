@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            const aniWidth = $(".banner").width();  // banner의 width 가져오기 -> 비어있으면 값을 가져옴
+            $(".banner-slide").width(aniWidth);     // .banner-slide의 width를 aniwidth로
+
+            setInterval(function(){
+                $(".banner-wrapper").animate({ "marginLeft" : "-=" + aniWidth}, 400) //  -aniwidth 만큼 marginLeft로 3초마다 가겠다. 
+            }, 3000);
+
+            // $(".banner-wrapper").css("marginLeft", -aniwidth);  -aniwidth 만큼 marginLeft로 가겠다. 2번째가 나옴
+        })
+    </script>
+    <style>
+        * { margin: 0; padding: 0; }
+        .banner{
+            overflow: hidden;
+        }
+        .banner-slide{
+            height: calc(100vh - 80px);
+            /* width: 100vw; 스크롤이 포함된 상태라 스와이퍼 오차가 터짐. 반드시 자바스크립트로 처리해야함 */
+        }
+        .bg0{ 
+            background-color: rgb(241, 147, 234);
+        }
+        .bg1{ 
+            background-color: rgb(59, 115, 235);
+        }
+        .bg2{ 
+            background-color: rgb(163, 231, 99);
+        }
+        .banner-wrapper{
+            display: flex;
+            width: 10000000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-wrapper">
+            <div class="banner-slide bg0"></div>
+            <div class="banner-slide bg1"></div>
+            <div class="banner-slide bg2"></div>
+        </div>
+        <div class="banner-btn"></div>
+    </div>
+</body>
+</html>
