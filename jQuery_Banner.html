@@ -11,11 +11,21 @@
             $(".banner-slide").width(aniWidth);     // .banner-slide의 width를 aniwidth로
 
             setInterval(function(){
-                $(".banner-wrapper").animate({ "marginLeft" : "-=" + aniWidth}, 400) //  -aniwidth 만큼 marginLeft로 3초마다 가겠다. 
+                $(".banner-wrapper").animate({ "marginLeft" : "-=" + aniWidth }, 400, function(){
+                // $(".banner-wrapper").animate({ "스타일" }, 스피드, function(){
+
+                    $(".banner-slide").eq(0).appendTo($(".banner-wrapper"));
+                    // $(".banner-slide:first-child").appendTo($(".banner-wrapper"));
+
+                    $(".banner-wrapper").css({ "marginLeft" : 0})
+                }) 
+                
             }, 3000);
 
             // $(".banner-wrapper").css("marginLeft", -aniwidth);  -aniwidth 만큼 marginLeft로 가겠다. 2번째가 나옴
         })
+
+
     </script>
     <style>
         * { margin: 0; padding: 0; }
