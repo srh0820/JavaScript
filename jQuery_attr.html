@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리는 바닐라와 달리 인터페이스에 초점을 두고 개발된 것이라 디자인관점에 잘 맞춰져 있음</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("body").css("background", "red")
+            $("p").addClass("content").html("제이쿼리로 삽입하기")
+            $("h2").addClass("title").html("<span>동적</span>객체")
+            
+            $("h2").css("color", "white")
+            $("p").css("color", "yellow")
+
+            // $("h2").css("color", "white")
+            // $("p").css("color", $("h2").css("color"))
+        })
+    </script>
+    <style>
+        /* body{
+            background-color: #ff0000;
+        }
+        h2{ color: #ffffff }
+        p{ color: #ffff00 } */
+    </style>
+</head>
+<body>
+    <!-- <script>
+            $("body").css("background", "red");
+    </script> -->
+    <p>동적객체</p>
+    <h2>동적객체</h2>
+</body>
+</html>
