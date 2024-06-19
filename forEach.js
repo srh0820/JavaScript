@@ -45,3 +45,34 @@ testdataobj.forEach((v, i)=>{
     console.log(v.nm)
     console.log(v["nm"])
 })
+
+
+const testdataobj2 = [
+    {
+        nm : "네이버",
+        href : "http://www.naver.com",
+        cls : "naver"
+    },
+    {
+        nm : "다음",
+        href : "http://www.daum.co.kr",
+        cls : "daum"
+    },
+    {
+        nm : "구글",
+        href : "http://www.google.com",
+        cls : "google"
+    }
+]
+// 백틱을 사용해서
+// <li><a href="http://www.naver.com">네이버</a></li> * 3줄이 출력되도록 한다.
+testdataobj2.forEach((v, i)=>{
+    console.log(`<li><a href="${v.href}">${v.nm}</a></li>`);
+    console.log(`<li><a href="${v["href"]}">${v["nm"]}</a></li>`);
+})
+
+// cls 값으로 li 클래스 추가 
+testdataobj2.forEach((v, i)=>{
+    console.log(`<li cls="${v.cls}"><a href="${v.href}">${v.nm}</a></li>`);
+    console.log(`<li cls="${v["cls"]}" ><a href="${v["href"]}">${v["nm"]}</a></li>`);
+})
