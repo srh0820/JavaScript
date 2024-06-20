@@ -51,6 +51,29 @@ for (x in storetest){
     console.log(`${storetest[x][0]}는 원가가 ${storetest[x][1]}원이고 할인해서 ${storetest[x][2]}원에 판매중입니다.`)
 }
 
+// 3. forEach value 타입확인 정렬임
 storetest.forEach((x , i)=>{
     console.log(`${x[0]}는 원가가 ${x[1]}원이고 할인해서 ${x[2]}원에 판매중입니다.`)
 })
+
+
+// string [], {}  ->  JSON.parse
+// string  ->  array 전환 split 메서드
+// array  ->  string 전환 join 메서드
+
+// split
+let characters = "Hello";
+let charArray2 = characters.split("");
+console.log(charArray2);
+// 출력: ["H", "e", "l", "l", "o"]
+
+// join
+let charArray = ["H", "e", "l", "l", "o"];
+let word = charArray.join("");
+console.log(word);
+// 출력: "Hello"
+
+// 서울 종로구 까지만 출력되도록 하기 (split 사용)
+const stringdataapi = "서울|종로구|명륜3가|감나무집";
+const api = stringdataapi.split("|");
+console.log(api[0], api[1])
