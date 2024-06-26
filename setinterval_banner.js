@@ -19,8 +19,17 @@ const bannerdata = [
 
 let num = 0;
 document.querySelector("#bannerimg").setAttribute("src", bannerdata[num])  //  첫화면 "/banner2/pokemon.png" 
-setInterval(function(){
+
+document.querySelector(".bannerwrap").style.background = `url(${bannerdata[num]}) center no-repeat`;
+
+const autoBanner = setInterval(function(){
     num++;
     num %= bannerdata.length;
-    document.querySelector("#bannerimg").setAttribute("src", bannerdata[num])
-}, 1000)
+    document.querySelector(".bannerwrap").style.background =`url(${bannerdata[num]}) center no-repeat`;
+    document.querySelector("#bannerimg").setAttribute("src",bannerdata[num]) 
+}, 3000)
+
+document.querySelector(".bannerwrap button").addEventListener('click', function(){
+    clearInterval(autoBanner);  // autoBanner 안에 있는 setInterval 을 지워라
+    this.innerHTML = "PLAY";
+})
