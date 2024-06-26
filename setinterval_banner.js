@@ -33,3 +33,32 @@ document.querySelector(".bannerwrap button").addEventListener('click', function(
     clearInterval(autoBanner);  // autoBanner 안에 있는 setInterval 을 지워라
     this.innerHTML = "PLAY";
 })
+
+// 최적화시키기
+// let num = 0;
+
+// const bannerWrap = document.querySelector(".bannerwrap");
+// const bannerImg = document.querySelector("#bannerimg");
+// const bannerButton = document.querySelector(".bannerwrap button");
+
+// function updateBanner() {
+//     bannerWrap.style.background = `url(${bannerData[num]}) center no-repeat`;
+//     bannerImg.setAttribute("src", bannerData[num]);
+// }
+
+// function startAutoBanner() {
+//     return setInterval(function() {
+//         num = (num + 1) % bannerData.length;
+//         updateBanner();
+//     }, 3000);
+// }
+
+// let autoBanner = startAutoBanner();
+
+// bannerButton.addEventListener('click', function() {
+//     clearInterval(autoBanner);
+//     bannerButton.innerHTML = "PLAY";
+// });
+
+// 초기 배너 설정
+// updateBanner();
