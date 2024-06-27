@@ -28,6 +28,9 @@
         .banner li:nth-child(3){
             background-color: green;
         }
+        .banner li:nth-child(4){
+            background-color: rgb(95, 200, 207);
+        }
         .btns{
             display: flex;
             justify-content: center;
@@ -35,20 +38,16 @@
         }
         .btns button{
             border: 0;
-            font-size: 0;
-            line-height: 0;
             display: block;
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
+            color: #fff;
             background-color: #666;
+            padding: 0 15px;
             margin: 0 10px;
             cursor: pointer;
             transition: 0.4s;
         }
         .btns button.on{
             background-color: red;
-            width: 30px;
             cursor: default;
         }
     </style>
@@ -56,14 +55,15 @@
 <body>
     <div class="banner">
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li data-msg="이벤트1"></li>
+            <li data-msg="이벤트2"></li>
+            <li data-msg="이벤트3"></li>
+            <li data-msg="이벤트4"></li>
         </ul>
         <div class="btns">
-            <button>1</button>
+            <!-- <button>1</button>
             <button>2</button>
-            <button>3</button>
+            <button>3</button> -->
         </div>
     </div>
 
@@ -81,6 +81,7 @@
         // $(".banner ul").width(aniw * 3);
 
         let btnsbutton = "";
+
         // each로 할 때
         // $(".banner li").each(function(idx, ele){
         //     console.log(idx, ele) // 순번, 객체
@@ -88,11 +89,18 @@
         // })
 
         // for로 할 때
-        for (let x = 0; x < lis; x++){
-            btnsbutton += `<button>${x + 1}</button>`; 
-        }
+        // for (let x = 0; x < lis; x++){
+        //     btnsbutton += `<button>${x + 1}</button>`; 
+        // }
 
-        $(".btns").html(btnsbutton)
+        // each로 해야만 할 때
+        $(".banner li").each(function(idx, ele){
+            btnsbutton += `<button>${$(this).data("msg")}</button>`; 
+        })
+
+        $(".btns").html(btnsbutton);
+
+        $(".btns button").eq(0).addClass("on");
 
         $(".btns button").on('click', function(){
             $(".banner ul").css("marginLeft", -aniw * $(this).index());
