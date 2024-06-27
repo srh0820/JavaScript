@@ -80,6 +80,20 @@
         $(".banner ul").width(aniw * lis); // body 너비 * lis
         // $(".banner ul").width(aniw * 3);
 
+        let btnsbutton = "";
+        // each로 할 때
+        // $(".banner li").each(function(idx, ele){
+        //     console.log(idx, ele) // 순번, 객체
+        //     btnsbutton += `<button>${idx + 1}</button>`; 
+        // })
+
+        // for로 할 때
+        for (let x = 0; x < lis; x++){
+            btnsbutton += `<button>${x + 1}</button>`; 
+        }
+
+        $(".btns").html(btnsbutton)
+
         $(".btns button").on('click', function(){
             $(".banner ul").css("marginLeft", -aniw * $(this).index());
             $(this).addClass("on").siblings().removeClass('on');
