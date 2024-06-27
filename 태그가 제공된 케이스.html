@@ -14,10 +14,9 @@
         }
         .banner ul{  /* swiper-wrapper */
             display: flex;
-            width: calc(100vw * 3);
+            transition: 0.4s;
         }
         .banner li{  /* swiper-slide */
-            width: 100vw;
             height: 600px;
         }
         .banner li:nth-child(1){
@@ -32,6 +31,25 @@
         .btns{
             display: flex;
             justify-content: center;
+            margin-top: 1rem;
+        }
+        .btns button{
+            border: 0;
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #666;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        .btns button.on{
+            background-color: red;
+            width: 30px;
+            cursor: default;
         }
     </style>
 </head>
@@ -53,16 +71,18 @@
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" 
     crossorigin="anonymous"></script>
     <script>
-        // $(".btns button").each(function(){
-        //     $(this).on('click', function(){
-        //         alert($(this).index()) // 자기 번호를 스스로 불러올 수 있음
-        //     })
-        // });
+        // const intermargin = parseInt($(".gnb").css("margin-left")); // parseint - 정수로 돌려주는 
+        // const aniw = $(document).css('width'); //  문서의 너비 값을 문자열로 할당(예: '1200px')
+        const aniw = $(document).width(); // 문서의 너비 값을 숫자로 가져옴
+
+        const lis = $(".banner li").length; // li들의 수 = 3
+        $(".banner li").width(aniw); // body 너비만큼
+        $(".banner ul").width(aniw * lis); // body 너비 * lis
+        // $(".banner ul").width(aniw * 3);
 
         $(".btns button").on('click', function(){
-            
-            alert($(this).index()) 
-           
+            $(".banner ul").css("marginLeft", -aniw * $(this).index());
+            $(this).addClass("on").siblings().removeClass('on');
         });
     </script>
 </body>
