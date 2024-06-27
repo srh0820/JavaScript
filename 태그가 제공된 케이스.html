@@ -101,6 +101,9 @@
         $(".btns").html(btnsbutton);
 
         $(".btns button").eq(0).addClass("on");
+        // 삼항식
+        // $(".btns button").eq(0).addClass("on").length ? true : false; 
+        //.length 속성으로 선택된 요소의 길이를 반환하며, 조건식에서 사용
 
         $(".btns button").on('click', function(){
             $(".banner ul").css("marginLeft", -aniw * $(this).index());
