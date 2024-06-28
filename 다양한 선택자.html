@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- li 호출 -->
+    <!-- notice li , notice > li , ul.notice > li , body ul.notice > li -->
+    <ul class="notice">
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+    </ul>
+    <a href="" id="mypage">마이페이지</a>
+    
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script>
+
+        // 화면이 열리자마자 두번째 li d-none 클래스 삽입하기
+        const num = 3;
+        $(`.notice li:nth-child(${num})`).addClass("d-none");
+
+        $(".notice li:nth-child(2)").addClass("d-none");
+        $(".notice li").eq(1).addClass("d-none");
+        $(".notice li:first-child").next().addClass("d-none");
+        $(".notice li:first-child + li").addClass("d-none");
+
+        // 첫째 li만 제외하고 모든 li 한테 
+        $(".notice li + li").addClass("d-none"); 
+        $(".notice li:not(:first-child)").addClass("d-none"); // 제외선택자
+
+        // 제외선택자
+        $(".notice li").not().addClass("d-none");
+
+        // mypage 에 주소 삽입하고 새창으로 열리게하기
+        $("#mypage").attr("href","http://naver.com").attr("target","_blank").html("네이버");
+        $("#mypage").attr({"href":"http://naver.com", "target":"_blank"}).html("네이버");
+        // json 으로
+        $("#mypage")
+            .attr({
+                "href":"http://naver.com", 
+                "target":"_blank"})
+            .html("네이버");
+        
+        const inserdb = {
+            "href" : "http://naver.com", 
+            "target" : "_blank"
+        }
+        $("#mypage")
+            .attr(inserdb)
+            .html("네이버");
+
+    </script>
+</body>
+</html>
