@@ -9,6 +9,9 @@
             margin: 0;
             padding: 0;
         }
+        .on{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -62,6 +65,18 @@
         $("#mypage")
             .attr(inserdb)
             .html("네이버");
+
+
+        // li 에 순서대로 on 클래스 추가하기
+        let count = 0;
+        const lis = $(".notice li").length
+        $(".notice li").eq(count).addClass("on");
+
+        setInterval(function(){
+            count++;
+            count = count % lis;
+            $(".notice li").eq(count).addClass("on").siblings().removeClass("on");
+        }, 1000)
 
     </script>
 </body>
