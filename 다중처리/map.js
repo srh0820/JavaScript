@@ -17,4 +17,7 @@ const mylist = mydb.map(
     (v, i) => `<li><a href='${v.href}'>${v.atext}</a></li>`
 )
 console.log(mylist, "정렬데이터 맞는지 t / f", Array.isArray(mylist));
-// map 을 통해서 return 받을 경우 array 로 나가게 된다. 
+// map 을 통해서 return 받을 경우 array 로 나가게 된다.
+
+// 리액트 표기법
+import mydb from './db.json';
