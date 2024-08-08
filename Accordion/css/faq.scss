@@ -4,6 +4,7 @@
 }
 
 #faq {
+    display: none;
     .inner { 
         h2 {
             font-size: calc(1rem + 1vw);
@@ -38,5 +39,13 @@
                 }
             }
         }
+    }
+}
+
+#accordion {
+    width: 50vw;
+    .ui-state-active {
+        background-color: red;
+        border: red;
     }
 }

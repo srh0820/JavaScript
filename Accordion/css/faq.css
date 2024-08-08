@@ -3,6 +3,9 @@
   margin: 0 auto;
 }
 
+#faq {
+  display: none;
+}
 #faq .inner h2 {
   font-size: calc(1rem + 1vw);
 }
@@ -26,4 +29,12 @@
   content: "";
   display: block;
   height: 1rem;
+}
+
+#accordion {
+  width: 50vw;
+}
+#accordion .ui-state-active {
+  background-color: red;
+  border: red;
 }
