@@ -15,10 +15,10 @@ window.addEventListener('load', function(){
             )
             
             // forEach 대신에 for of 쓰기
-            for (let siblings of siblings) {
+            for (let sibling of siblings) {
                 // for of array 아니면서 array형 데이터에서 씀
-                if (siblings !== this.parentElement) { // 부모빼고
-                    siblings.classList.remove('open');
+                if (sibling !== this.parentElement) { // 부모빼고
+                    sibling.classList.remove('open');
                 }
             }
         })
